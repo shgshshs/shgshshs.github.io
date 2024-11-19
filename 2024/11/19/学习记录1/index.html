@@ -1,0 +1,430 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>学习记录1 | shgshshs</title><meta name="author" content="shgshshs"><meta name="copyright" content="shgshshs"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="极客Web&#x2F;Misc题目复现MiscTruth of Word全选，将内容设置成其他颜色，透明的文字就显示Flag01&#x3D;SYC&#123;W0rd_H@5   文件本质： ​        1.原理： ​            word文件的后缀名是.docx，而它的文件本质是一个zip压缩文件 ​        2.方法： ​            我们可以在压缩文件中将后缀从.doc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习记录1">
+<meta property="og:url" content="http://example.com/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/index.html">
+<meta property="og:site_name" content="shgshshs">
+<meta property="og:description" content="极客Web&#x2F;Misc题目复现MiscTruth of Word全选，将内容设置成其他颜色，透明的文字就显示Flag01&#x3D;SYC&#123;W0rd_H@5   文件本质： ​        1.原理： ​            word文件的后缀名是.docx，而它的文件本质是一个zip压缩文件 ​        2.方法： ​            我们可以在压缩文件中将后缀从.doc">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/icon.jpg">
+<meta property="article:published_time" content="2024-11-19T04:01:28.000Z">
+<meta property="article:modified_time" content="2024-11-19T07:37:41.574Z">
+<meta property="article:author" content="shgshshs">
+<meta property="article:tag" content="解题 知识点">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/icon.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '学习记录1',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(https://haowallpaper.com/link/common/file/previewFileImg/15702004042207552);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/icon.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://haowallpaper.com/link/common/file/previewFileImg/15702006569931072);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">shgshshs</span></a><a class="nav-page-title" href="/"><span class="site-name">学习记录1</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">学习记录1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-19T04:01:28.000Z" title="发表于 2024-11-19 12:01:28">2024-11-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-19T07:37:41.574Z" title="更新于 2024-11-19 15:37:41">2024-11-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/web-misc/">web misc</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="极客Web-Misc题目复现"><a href="#极客Web-Misc题目复现" class="headerlink" title="极客Web&#x2F;Misc题目复现"></a>极客Web&#x2F;Misc题目复现</h1><h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="Truth-of-Word"><a href="#Truth-of-Word" class="headerlink" title="Truth of Word"></a>Truth of Word</h3><p>全选，将内容设置成其他颜色，透明的文字就显示<code>Flag01=SYC&#123;W0rd_H@5</code></p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/flag.png" class="" title="Flag01">
+
+<p>文件本质：</p>
+<p>​        1.原理：</p>
+<p>​            word文件的后缀名是.<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=docx&spm=1001.2101.3001.7020">docx</a>，而它的文件本质是一个zip压缩文件</p>
+<p>​        2.方法：</p>
+<p>​            我们可以在压缩文件中将后缀从.docx改为.zip</p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/2.png" class="">
+
+<p>打开压缩包，在<code>challenge.zip\word\media </code>路径内找到<code>Flag03.png</code></p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/3.png" class="">
+
+<p><code>FLAG03=StrUCtu3e!&#125;</code></p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/flag03.png" class="">
+
+<p>注意到这个<code>word</code>的后缀名和平常不一样，是<code>docm</code></p>
+<p><code> .docm</code>格式是Microsoft Word 2007及以上版本支持的一种文件格式，它通常用于储存包含宏和<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=VBA&spm=1001.2101.3001.7020">VBA</a>代码的Word文档。</p>
+<p>在菜单栏上点开<code>文件</code>，进入<code>选项</code></p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/4.png" class="">
+
+<p>点击<code>自定义功能区</code>，勾选<code>开发工具</code></p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/5.png" class="">
+
+<p>之后菜单栏上就会出现<code>开发工具</code>选项卡</p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/6.png" class="">
+
+<p>修改文档属性，勾选<code>解除锁定</code></p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/7.png" class="">
+
+<p>打开文档后根据提示启用宏，点击<code>开发工具</code>选项卡，点击<code>Visual Basic</code></p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/8.png" class="">
+
+<p><code>Flag = @_Ama1n9_</code></p>
+<p>拼接得到完整的flag：<code>SYC&#123;W0rd_H@5@_Ama1n9_StrUCtu3e!&#125;</code></p>
+<h3 id="cimbar"><a href="#cimbar" class="headerlink" title="cimbar"></a>cimbar</h3><p>cimbar 是一种高密度 2D 条形码格式。数据存储在彩色图块网格中 – 根据选择的图块以及选择的颜色来绘制图块，对位进行编码。对数据应用 Reed Solomon 纠错，以解释视频 -&gt; 数字解码的有损性质。预计错误率低于 1%，并得到纠正。网格上每个图块（位置）有 16 个可能的符号，每个图块编码 4 位。</p>
+<p> 简单来说就是将文件转化为图标矩阵码，用其他设备扫码进行传输。</p>
+<p><a target="_blank" rel="noopener" href="https://cimbar.org/"></a>该网址网页端就是一个html文件，无网络环境下浏览器打开也能正常使用</p>
+<p>编码器将图片转为动画条形码，可以用<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/12.png" class="">扫描，<a target="_blank" rel="noopener" href="https://github.com/sz3/cfc/releases">Android APP下载</a></p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/11.png" class="">
+
+<p>但这题不用扫描，在网上找到图形对应二进制的转换图，直接用<code>CyberChef</code>解码</p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/10.png" class="">
+
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/9.png" class="">
+
+<p>比较麻烦，就不再输一遍了</p>
+<h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="100-的⚪"><a href="#100-的⚪" class="headerlink" title="100%的⚪"></a>100%的⚪</h3><p>这题貌似直接修改js代码，直接把最佳成绩改为<code>100%</code></p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/15.png" class="">
+
+<p>再随便画个圆</p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/16.png" class="">
+
+<p>得到flag</p>
+<h3 id="ez-http"><a href="#ez-http" class="headerlink" title="ez_http"></a>ez_http</h3><p>这道题比较基础，用<code>hackbar</code>就可以</p>
+<p>第一关用<code>GET</code>请求传入一个参数<code>welcome</code>随便赋一个值<code>1</code></p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/17.png" class="">
+
+<p>根据提示，将值改为<code>geekchallenge2024</code>，进入第二关</p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/18.png" class="">
+
+<p><code>POST</code>方法传入两个参数<code>username</code>、<code>password</code>，先随便赋个值</p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/19.png" class="">
+
+<p>根据提示修改post参数的值，进入第三关</p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/20.png" class="">
+
+<p>添加请求头<code>Referer</code>值为<code>https://www.sycsec.com</code></p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/21.png" class="">
+
+<p>请求头伪造本地访问，可以用<code>Referer</code>、<code>X-Real-IP</code>、<code>X-Forwarded-For</code>，尝试过后发现只有<code>X-Real-IP</code>有效果，值设为回环地址<code>127.0.0.1</code></p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/22.png" class="">
+
+<p>第五关是一段PHP代码，这里的<code>$_SERVER</code>是一个PHP超全局变量，包含了诸如头信息(header)、路径(path)和脚本位置(script locations)等信息。<code>$_SERVER[&quot;HTTP_STARVEN&quot;]</code>是指客户端发送到服务器的HTTP请求头中的<code>Starven</code>字段的值。这段PHP代码用于检查客户端发送的HTTP请求头中的<code>Starven</code>字段是否等于<code>I_Want_Flag</code>。</p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/23.png" class="">
+
+<p>之后进入下一步，<code>where is key?</code>检查源代码，找到<code>key</code>为<code>Starven_secret_key</code>。<a target="_blank" rel="noopener" href="https://jwt.io/"></a>对<code>token</code>进行签名</p>
+<p><strong>签名（Signature）</strong>：用于验证消息在传输过程中未被篡改，并且，对于使用私钥签名的令牌，还可以验证发送者的身份。签名是通过使用头部中指定的算法和密钥对头部和载荷进行加密得到的。</p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/24.png" class="">
+
+<p>要先输入<code>key</code>,再输入<code>token</code>，将<code>“hasflag”</code>的值改为<code>true</code></p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/25.png" class="">
+
+<p>将修改过后的<code>token</code>赋给请求头<code>Cookie</code>，访问得到flag</p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/26.png" class="">
+
+<p><code>SYC&#123;8555a969-ab50-46ad-8e25-1dce0190a664&#125;</code></p>
+<h2 id="单身杯"><a href="#单身杯" class="headerlink" title="单身杯"></a>单身杯</h2><h3 id="签到·好玩的PHP"><a href="#签到·好玩的PHP" class="headerlink" title="签到·好玩的PHP"></a>签到·好玩的PHP</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">ctfshow</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="variable">$d</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="variable">$s</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="variable">$b</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="variable">$ctf</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="variable language_">$this</span>-&gt;d = (<span class="keyword">string</span>)<span class="variable language_">$this</span>-&gt;d;</span><br><span class="line">            <span class="variable language_">$this</span>-&gt;s = (<span class="keyword">string</span>)<span class="variable language_">$this</span>-&gt;s;</span><br><span class="line">            <span class="variable language_">$this</span>-&gt;b = (<span class="keyword">string</span>)<span class="variable language_">$this</span>-&gt;b;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> ((<span class="variable language_">$this</span>-&gt;d != <span class="variable language_">$this</span>-&gt;s) &amp;&amp; (<span class="variable language_">$this</span>-&gt;d != <span class="variable language_">$this</span>-&gt;b) &amp;&amp; (<span class="variable language_">$this</span>-&gt;s != <span class="variable language_">$this</span>-&gt;b)) &#123;</span><br><span class="line">                <span class="variable">$dsb</span> = <span class="variable language_">$this</span>-&gt;d.<span class="variable language_">$this</span>-&gt;s.<span class="variable language_">$this</span>-&gt;b;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> ((<span class="title function_ invoke__">strlen</span>(<span class="variable">$dsb</span>) &lt;= <span class="number">3</span>) &amp;&amp; (<span class="title function_ invoke__">strlen</span>(<span class="variable">$this</span>-&gt;ctf) &lt;= <span class="number">3</span>)) &#123;</span><br><span class="line">                    <span class="keyword">if</span> ((<span class="variable">$dsb</span> !== <span class="variable language_">$this</span>-&gt;ctf) &amp;&amp; (<span class="variable language_">$this</span>-&gt;ctf !== <span class="variable">$dsb</span>)) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (<span class="title function_ invoke__">md5</span>(<span class="variable">$dsb</span>) === <span class="title function_ invoke__">md5</span>(<span class="variable">$this</span>-&gt;ctf)) &#123;</span><br><span class="line">                            <span class="keyword">echo</span> <span class="title function_ invoke__">file_get_contents</span>(<span class="string">&quot;/flag.txt&quot;</span>);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_ invoke__">unserialize</span>(<span class="variable">$_GET</span>[<span class="string">&quot;dsbctf&quot;</span>]);</span><br></pre></td></tr></table></figure>
+
+<p>&#96;</p>
+<p><strong><code>error_reporting(0);</code></strong></p>
+<ul>
+<li><strong>作用：</strong><br>关闭错误报告。这意味着程序运行中发生的任何错误或警告都不会显示出来。</li>
+</ul>
+<p><strong><code>highlight_file(__FILE__);</code></strong></p>
+<ul>
+<li><strong>作用：</strong><br>使用高亮显示当前文件的代码。<code>__FILE__</code> 是一个魔术常量，表示当前脚本文件名，显示代码给用户。</li>
+</ul>
+<p>定义一个名为 <code>ctfshow</code> 的类，包含 4 个私有属性：<code>$d</code>、<code>$s</code>、<code>$b</code> 和 <code>$ctf</code>，它们初始值均为空字符串。<code>private</code> 修饰符确保这些属性只能在类的内部访问。</p>
+<p>定义了析构函数 <code>__destruct()</code>，会在对象销毁时自动调用。首先，将 <code>$d</code>、<code>$s</code> 和 <code>$b</code> 转换为字符串类型。</p>
+<p>该题涉及 PHP 反序列化的知识点，解析常见的数据类型在序列化后的表现。</p>
+<h4 id="基本数据类型的序列化结构"><a href="#基本数据类型的序列化结构" class="headerlink" title="基本数据类型的序列化结构"></a>基本数据类型的序列化结构</h4><table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="left"><strong>示例值</strong></th>
+<th align="left"><strong>序列化后的结构</strong></th>
+<th align="left">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字符串</td>
+<td align="left"><code>&quot;Alice&quot;</code></td>
+<td align="left"><code>s:5:&quot;Alice&quot;;</code></td>
+<td align="left"><code>s</code> 表示字符串，<code>5</code> 是字符串的长度，<code>&quot;Alice&quot;</code> 是值</td>
+</tr>
+<tr>
+<td>整数</td>
+<td align="left"><code>25</code></td>
+<td align="left"><code>i:25;</code></td>
+<td align="left"><code>i</code> 表示整数，<code>25</code> 是值。</td>
+</tr>
+<tr>
+<td>浮点数</td>
+<td align="left"><code>3.14</code></td>
+<td align="left"><code>d:3.14;</code></td>
+<td align="left"><code>d</code> 表示浮点数，<code>3.14</code> 是值</td>
+</tr>
+<tr>
+<td>布尔值</td>
+<td align="left"><code>true</code> &#x2F; <code>false</code></td>
+<td align="left"><code>b:1;</code> &#x2F; <code>b:0;</code></td>
+<td align="left"><code>b</code> 表示布尔值，<code>1</code> 表示 <code>true</code>，<code>0</code> 表示 <code>false</code>。</td>
+</tr>
+<tr>
+<td><code>null</code></td>
+<td align="left"><code>null</code></td>
+<td align="left"><code>N;</code></td>
+<td align="left"><code>N</code> 表示 <code>null</code> 值，无附加数据。</td>
+</tr>
+</tbody></table>
+<h3 id="序列化后的数据结构"><a href="#序列化后的数据结构" class="headerlink" title="序列化后的数据结构"></a><strong>序列化后的数据结构</strong></h3><p>序列化的核心目标是将复杂的数据结构转换为<strong>字符串形式</strong>，便于存储或传输。序列化后的字符串包含所有必要信息，以便通过反序列化完整恢复数据结构。以下以 PHP 为例，解析常见的数据类型在序列化后的表现。</p>
+<h4 id="1-基本数据类型的序列化结构"><a href="#1-基本数据类型的序列化结构" class="headerlink" title="1. 基本数据类型的序列化结构"></a><strong>1. 基本数据类型的序列化结构</strong></h4><table>
+<thead>
+<tr>
+<th><strong>类型</strong></th>
+<th><strong>示例值</strong></th>
+<th><strong>序列化后的结构</strong></th>
+<th><strong>解释</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>字符串</strong></td>
+<td><code>&quot;Alice&quot;</code></td>
+<td><code>s:5:&quot;Alice&quot;;</code></td>
+<td><code>s</code> 表示字符串，<code>5</code> 是字符串的长度，<code>&quot;Alice&quot;</code> 是值。</td>
+</tr>
+<tr>
+<td><strong>整数</strong></td>
+<td><code>25</code></td>
+<td><code>i:25;</code></td>
+<td><code>i</code> 表示整数，<code>25</code> 是值。</td>
+</tr>
+<tr>
+<td><strong>浮点数</strong></td>
+<td><code>3.14</code></td>
+<td><code>d:3.14;</code></td>
+<td><code>d</code> 表示浮点数，<code>3.14</code> 是值。</td>
+</tr>
+<tr>
+<td><strong>布尔值</strong></td>
+<td><code>true</code> &#x2F; <code>false</code></td>
+<td><code>b:1;</code> &#x2F; <code>b:0;</code></td>
+<td><code>b</code> 表示布尔值，<code>1</code> 表示 <code>true</code>，<code>0</code> 表示 <code>false</code>。</td>
+</tr>
+<tr>
+<td><strong><code>null</code></strong></td>
+<td><code>null</code></td>
+<td><code>N;</code></td>
+<td><code>N</code> 表示 <code>null</code> 值，无附加数据。</td>
+</tr>
+</tbody></table>
+<h4 id="2-复合数据类型的序列化结构"><a href="#2-复合数据类型的序列化结构" class="headerlink" title="2. 复合数据类型的序列化结构"></a><strong>2. 复合数据类型的序列化结构</strong></h4><p>(1)数组</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$data</span> = [<span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;Alice&#x27;</span>, <span class="string">&#x27;age&#x27;</span> =&gt; <span class="number">25</span>];</span><br><span class="line"><span class="variable">$serialized</span> = <span class="title function_ invoke__">serialize</span>(<span class="variable">$data</span>);</span><br><span class="line"><span class="comment">// 结果  a:2:&#123;s:4:&quot;name&quot;;s:5:&quot;Alice&quot;;s:3:&quot;age&quot;;i:25;&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>解释</strong>：</p>
+<ul>
+<li><code>a:2</code>: 表示数组，包含 2 个元素。</li>
+<li><code>&#123;...&#125;</code>: 大括号内是数组的内容，每个元素由键和值组成。<ul>
+<li>键和值的格式和类型分别对应：<ul>
+<li><code>s:4:&quot;name&quot;;</code> 是键，表示字符串 <code>&quot;name&quot;</code>。</li>
+<li><code>s:5:&quot;Alice&quot;;</code> 是值，表示字符串 <code>&quot;Alice&quot;</code>。</li>
+<li><code>s:3:&quot;age&quot;;</code> 是键，表示字符串 <code>&quot;age&quot;</code>。</li>
+<li><code>i:25;</code> 是值，表示整数 <code>25</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>（2）嵌套数组</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$data</span> = [<span class="string">&#x27;user&#x27;</span> =&gt; [<span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;Alice&#x27;</span>, <span class="string">&#x27;age&#x27;</span> =&gt; <span class="number">25</span>]];</span><br><span class="line"><span class="variable">$serialized</span> = <span class="title function_ invoke__">serialize</span>(<span class="variable">$data</span>);</span><br><span class="line"><span class="comment">// 结果: a:1:&#123;s:4:&quot;user&quot;;a:2:&#123;s:4:&quot;name&quot;;s:5:&quot;Alice&quot;;s:3:&quot;age&quot;;i:25;&#125;&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>解释：</p>
+<ul>
+<li><code>a:1</code>: 表示外层数组，包含 1 个元素。</li>
+<li>内层数组序列化为 <code>a:2:&#123;s:4:&quot;name&quot;;s:5:&quot;Alice&quot;;s:3:&quot;age&quot;;i:25;&#125;</code>，表示嵌套的数组结构。</li>
+</ul>
+<p>(3) 对象</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$name</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$age</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$user</span> = <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line"><span class="variable">$user</span>-&gt;name = <span class="string">&quot;Alice&quot;</span>;</span><br><span class="line"><span class="variable">$user</span>-&gt;age = <span class="number">25</span>;</span><br><span class="line"><span class="variable">$serialized</span> = <span class="title function_ invoke__">serialize</span>(<span class="variable">$user</span>);</span><br><span class="line"><span class="comment">// 结果: O:4:&quot;User&quot;:2:&#123;s:4:&quot;name&quot;;s:5:&quot;Alice&quot;;s:3:&quot;age&quot;;i:25;&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>解释：</p>
+<ul>
+<li><code>O:4:&quot;User&quot;</code>: 表示对象，<code>4</code> 是类名的长度，<code>&quot;User&quot;</code> 是类名。</li>
+<li><code>:2</code>: 表示对象有 2 个属性。</li>
+<li><code>&#123;...&#125;</code>: 大括号内是属性的键值对。<ul>
+<li><code>s:4:&quot;name&quot;;</code> 和 <code>s:3:&quot;age&quot;;</code> 是属性名。</li>
+<li><code>s:5:&quot;Alice&quot;;</code> 和 <code>i:25;</code> 是属性值。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-序列化结构中的特殊标记"><a href="#3-序列化结构中的特殊标记" class="headerlink" title="3. 序列化结构中的特殊标记"></a><strong>3. 序列化结构中的特殊标记</strong></h4><table>
+<thead>
+<tr>
+<th>标记</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>s</code></td>
+<td>字符串 (string)</td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td>整数 (integer)</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>浮点数 (double)</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>布尔值 (boolean)</td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td>空值 (null)</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>数组 (array)</td>
+</tr>
+<tr>
+<td><code>O</code></td>
+<td>对象 (object)</td>
+</tr>
+</tbody></table>
+<h4 id="4-序列化数据的存储结构示例"><a href="#4-序列化数据的存储结构示例" class="headerlink" title="4. 序列化数据的存储结构示例"></a>4. 序列化数据的存储结构示例</h4><ol>
+<li><p>单一类型示例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$data</span> = <span class="string">&quot;Alice&quot;</span>;</span><br><span class="line"><span class="variable">$serialized</span> = <span class="title function_ invoke__">serialize</span>(<span class="variable">$data</span>);</span><br><span class="line"><span class="comment">// 结果: s:5:&quot;Alice&quot;;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>复杂结构示例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$data</span> = [</span><br><span class="line">    <span class="string">&#x27;id&#x27;</span> =&gt; <span class="number">1</span>,</span><br><span class="line">    <span class="string">&#x27;info&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;Alice&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;age&#x27;</span> =&gt; <span class="number">25</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&#x27;isAdmin&#x27;</span> =&gt; <span class="literal">true</span></span><br><span class="line">];</span><br><span class="line"><span class="variable">$serialized</span> = <span class="title function_ invoke__">serialize</span>(<span class="variable">$data</span>);</span><br><span class="line"><span class="comment">// 结果:</span></span><br><span class="line"><span class="comment">// a:3:&#123;</span></span><br><span class="line"><span class="comment">//   s:2:&quot;id&quot;;i:1;</span></span><br><span class="line"><span class="comment">//   s:4:&quot;info&quot;;a:2:&#123;s:4:&quot;name&quot;;s:5:&quot;Alice&quot;;s:3:&quot;age&quot;;i:25;&#125;</span></span><br><span class="line"><span class="comment">//   s:7:&quot;isAdmin&quot;;b:1;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象序列化示例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$prop1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$prop2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$obj</span> = <span class="keyword">new</span> <span class="title class_">Example</span>();</span><br><span class="line"><span class="variable">$obj</span>-&gt;prop1 = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"><span class="variable">$obj</span>-&gt;prop2 = <span class="number">123</span>;</span><br><span class="line"><span class="variable">$serialized</span> = <span class="title function_ invoke__">serialize</span>(<span class="variable">$obj</span>);</span><br><span class="line"><span class="comment">// 结果: O:7:&quot;Example&quot;:2:&#123;s:6:&quot;prop1&quot;;s:5:&quot;Hello&quot;;s:6:&quot;prop2&quot;;i:123;&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>对于这道题关键点是要知道PHP中的特殊浮点数常量<code>NAN</code>和<code>INF</code></p>
+<p><code>NAN</code> 代表“非数值”，是浮点运算中的一种特殊结果，表示一个无法定义的或不合法的数值。</p>
+<p><code>INF</code> 表示“无穷大”，是浮点数中的另一个特殊常量，用于表示超出最大可表示的数值范围的结果，或者表示无穷大的数学概念。</p>
+<p>因为将<strong>这两个常量转成字符串类型之后的md5值与原先的浮点类型md5值相等</strong>，又由于类型不相等、长度均为3，所以可以满足最后三个if判断。由于在第一个判断条件中要求变量<code>$dsb</code>的三个字符互不相等，因此只能取<code>INF</code>来构造payload：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">ctfshow</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="variable">$d</span> = <span class="string">&#x27;I&#x27;</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="variable">$s</span> = <span class="string">&#x27;N&#x27;</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="variable">$b</span> = <span class="string">&#x27;F&#x27;</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="variable">$ctf</span> = INF;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$dsbctf</span> = <span class="keyword">new</span> <span class="title function_ invoke__">ctfshow</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span> <span class="title function_ invoke__">urlencode</span>(<span class="title function_ invoke__">serialize</span>(<span class="variable">$dsbctf</span>));</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.bejson.com/runcode/php/">php在线运行</a></p>
+<p>输出：</p>
+<p><code>O%3A7%3A%22ctfshow%22%3A4%3A%7Bs%3A10%3A%22%00ctfshow%00d%22%3Bs%3A1%3A%22I%22%3Bs%3A10%3A%22%00ctfshow%00s%22%3Bs%3A1%3A%22N%22%3Bs%3A10%3A%22%00ctfshow%00b%22%3Bs%3A1%3A%22F%22%3Bs%3A12%3A%22%00ctfshow%00ctf%22%3Bd%3AINF%3B%7D</code></p>
+<img src="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/27.png" class="">
+
+<p><code>GET</code>方法传入，得到flag：<code>ctfshow&#123;643cf652-c5cf-4e08-ab24-b7e99f2a4d0a&#125;</code></p>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">shgshshs</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/">http://example.com/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">shgshshs</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%A7%A3%E9%A2%98-%E7%9F%A5%E8%AF%86%E7%82%B9/">解题 知识点</a></div><div class="post-share"><div class="social-share" data-image="/img/icon.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2024/11/11/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" title="测试文章"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">测试文章</div></div><div class="info-2"><div class="info-item-1"> 这是一篇测试文章1         </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/icon.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">shgshshs</div><div class="author-info-description">shgshshs'blog</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%81%E5%AE%A2Web-Misc%E9%A2%98%E7%9B%AE%E5%A4%8D%E7%8E%B0"><span class="toc-number">1.</span> <span class="toc-text">极客Web&#x2F;Misc题目复现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Misc"><span class="toc-number">1.1.</span> <span class="toc-text">Misc</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Truth-of-Word"><span class="toc-number">1.1.1.</span> <span class="toc-text">Truth of Word</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cimbar"><span class="toc-number">1.1.2.</span> <span class="toc-text">cimbar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web"><span class="toc-number">1.2.</span> <span class="toc-text">Web</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#100-%E7%9A%84%E2%9A%AA"><span class="toc-number">1.2.1.</span> <span class="toc-text">100%的⚪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ez-http"><span class="toc-number">1.2.2.</span> <span class="toc-text">ez_http</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E8%BA%AB%E6%9D%AF"><span class="toc-number">1.3.</span> <span class="toc-text">单身杯</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%BE%E5%88%B0%C2%B7%E5%A5%BD%E7%8E%A9%E7%9A%84PHP"><span class="toc-number">1.3.1.</span> <span class="toc-text">签到·好玩的PHP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">基本数据类型的序列化结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E5%90%8E%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.2.</span> <span class="toc-text">序列化后的数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">1. 基本数据类型的序列化结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%A4%8D%E5%90%88%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">2. 复合数据类型的序列化结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%93%E6%9E%84%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E6%A0%87%E8%AE%B0"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">3. 序列化结构中的特殊标记</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%BA%8F%E5%88%97%E5%8C%96%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.3.2.4.</span> <span class="toc-text">4. 序列化数据的存储结构示例</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/" title="学习记录1">学习记录1</a><time datetime="2024-11-19T04:01:28.000Z" title="发表于 2024-11-19 12:01:28">2024-11-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/11/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" title="测试文章">测试文章</a><time datetime="2024-11-11T10:45:44.000Z" title="发表于 2024-11-11 18:45:44">2024-11-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/11/hello-world/" title="Hello World">Hello World</a><time datetime="2024-11-11T09:54:39.632Z" title="发表于 2024-11-11 17:54:39">2024-11-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By shgshshs</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
